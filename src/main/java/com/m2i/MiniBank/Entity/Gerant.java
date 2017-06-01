@@ -1,6 +1,6 @@
 package com.m2i.MiniBank.Entity;
 
-public class gerant extends utilisateur {
+public class Gerant extends Utilisateur {
 
 	public Integer utilisateurID;
 

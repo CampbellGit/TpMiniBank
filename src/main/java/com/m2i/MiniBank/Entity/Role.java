@@ -1,6 +1,6 @@
 package com.m2i.MiniBank.Entity;
 
-public class role {
+public class Role {
 
 	public int roleID;
 

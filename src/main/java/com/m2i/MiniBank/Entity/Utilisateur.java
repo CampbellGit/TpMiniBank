@@ -1,6 +1,6 @@
 package com.m2i.MiniBank.Entity;
 
-public class utilisateur {
+public class Utilisateur {
 
 
   public Integer utilisateurID;

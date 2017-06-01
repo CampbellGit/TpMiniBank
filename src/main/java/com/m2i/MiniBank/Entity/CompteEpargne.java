@@ -1,6 +1,6 @@
 package com.m2i.MiniBank.Entity;
 
-public class compteEpargne extends compte {
+public class CompteEpargne extends Compte {
 
 	public Integer IDcompte;
 

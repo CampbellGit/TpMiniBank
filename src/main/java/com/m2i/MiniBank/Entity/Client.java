@@ -1,6 +1,6 @@
 package com.m2i.MiniBank.Entity;
 
-public class client {
+public class Client {
 	/* {src_lang=Java} */
 	public String nom;
 

@@ -1,6 +1,6 @@
 package com.m2i.MiniBank.Entity;
 
-public class Conseiller extends utilisateur {
+public class Conseiller extends Utilisateur {
 
 	public Integer utilisateurID;
 

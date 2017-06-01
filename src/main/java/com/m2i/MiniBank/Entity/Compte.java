@@ -3,7 +3,7 @@ package com.m2i.MiniBank.Entity;
 import java.util.Date;
 import java.util.Vector;
 
-public class compte {
+public class Compte {
 
 	private float numerocompte;
 
