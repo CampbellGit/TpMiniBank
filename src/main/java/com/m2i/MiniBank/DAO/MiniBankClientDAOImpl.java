@@ -7,42 +7,41 @@ import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
 import com.m2i.MiniBank.DAO.Util.HibernateUtil;
-import com.m2i.MiniBank.Entity.Utilisateur;
+import com.m2i.MiniBank.Entity.Client;
 
-@Repository("MiniBankDAO")
-public class MiniBankDAOImpl implements IMiniBankDAO {
 
-	public void addOrUpdateUtilisateur(Utilisateur u) {
+
+
+@Repository("MiniBankClientDAO")
+public class MiniBankClientDAOImpl implements IMiniBankClientDAO {
+	
+	
+	public void ajouterClient(Client client) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
-		session.saveOrUpdate(u);
+		session.saveOrUpdate(client);
 		tx.commit();
 		session.close();
-		
 	}
-
-	public void removeUtilisateur(Utilisateur u) {
+	public void supprimerClient(Client client) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
-		User tempU = (User) session.load(User.class, u.getId());
+		Client tempU = (Client) session.load(Client.class, client.getClientID());
 		if (null != tempU) {
 			session.delete(tempU);
 		}
 		tx.commit();
 		session.close();
-		
 	}
-
-	public Utilisateur findUtilisateurById(int id) {
+	public Client listerClientParId(int id) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		User u = (User) session.load(User.class, id);
-		return u;
+		Client client = (Client) session.load(Client.class, id);
+		return client;
 	}
-
-	public List<Utilisateur> findAllUtilisateurs() {
+	public List<Client> listerClients() {
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		List<User> userslist = session.createQuery("from User").list();
-		return userslist;
+		List<Client> listeClients = session.createQuery("from Client").list();
+		return listeClients;
 	}
 
 }
