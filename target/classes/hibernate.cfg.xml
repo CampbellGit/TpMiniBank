@@ -18,6 +18,7 @@
 		<property name="hibernate.hbm2ddl.auto">create</property>
 		<mapping class="com.m2i.MiniBank.Entity.Utilisateur" />
 		<mapping class="com.m2i.MiniBank.Entity.Role" />
+		<mapping class="com.m2i.MiniBank.Entity.Compte" />
 	</session-factory>
 
 </hibernate-configuration>

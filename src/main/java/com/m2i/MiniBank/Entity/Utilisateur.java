@@ -17,7 +17,7 @@ import javax.persistence.Table;
 import com.m2i.MiniBank.Entity.Role;
 
 @Entity
-@Table(name = "T_UTIISATEUR")
+@Table(name = "T_UTILISATEUR")
 public class Utilisateur {
 
 	private long utilisateurID;
