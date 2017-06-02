@@ -1,18 +1,60 @@
 package com.m2i.MiniBank.Entity;
 
 import java.util.Date;
-import java.util.Vector;
 
+import javax.faces.bean.ManagedBean;
+
+@ManagedBean
 public class Compte {
 
-	private float numerocompte;
+	public long getNumerocompte() {
+		return numerocompte;
+	}
 
-	public float solde;
+	public void setNumerocompte(long numerocompte) {
+		this.numerocompte = numerocompte;
+	}
+
+	public long getSolde() {
+		return solde;
+	}
+
+	public void setSolde(long solde) {
+		this.solde = solde;
+	}
+
+	public Date getDateouverture() {
+		return dateouverture;
+	}
+
+	public void setDateouverture(Date dateouverture) {
+		this.dateouverture = dateouverture;
+	}
+
+	public long getIDcompte() {
+		return IDcompte;
+	}
+
+	public void setIDcompte(long iDcompte) {
+		IDcompte = iDcompte;
+	}
+
+	public float getDecouvert() {
+		return decouvert;
+	}
+
+	public void setDecouvert(float decouvert) {
+		this.decouvert = decouvert;
+	}
+
+	private long numerocompte;
+
+	public long solde;
 
 	public Date dateouverture;
 
-	public Integer IDcompte;
+	public long IDcompte;
 
-	public int decouvert;
+	public float decouvert;
 
 }

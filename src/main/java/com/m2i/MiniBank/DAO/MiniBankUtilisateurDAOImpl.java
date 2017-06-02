@@ -10,7 +10,7 @@ import com.m2i.MiniBank.DAO.Util.HibernateUtil;
 import com.m2i.MiniBank.Entity.Utilisateur;
 
 @Repository("MiniBankDAO")
-public class MiniBankDAOImpl implements IMiniBankDAO {
+public class MiniBankUtilisateurDAOImpl implements IMiniBankUtilisateurDAO {
 
 	public void addOrUpdateUtilisateur(Utilisateur u) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
@@ -24,7 +24,7 @@ public class MiniBankDAOImpl implements IMiniBankDAO {
 	public void removeUtilisateur(Utilisateur u) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
-		User tempU = (User) session.load(User.class, u.getId());
+		Utilisateur tempU = (Utilisateur) session.load(Utilisateur.class, u.getUtilisateurID());
 		if (null != tempU) {
 			session.delete(tempU);
 		}
@@ -35,13 +35,13 @@ public class MiniBankDAOImpl implements IMiniBankDAO {
 
 	public Utilisateur findUtilisateurById(int id) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		User u = (User) session.load(User.class, id);
+		Utilisateur u = (Utilisateur) session.load(Utilisateur.class, id);
 		return u;
 	}
 
 	public List<Utilisateur> findAllUtilisateurs() {
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		List<User> userslist = session.createQuery("from User").list();
+		List<Utilisateur> userslist = session.createQuery("from User").list();
 		return userslist;
 	}
 

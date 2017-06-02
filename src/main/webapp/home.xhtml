@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>Registration Page</title>
+    <link href="resources/css/style.css" rel="stylesheet" type="text/css"></link>
+</h:head>
+<h:body>
+    <f:view>
+        <h:form id="registerForm">
+            <table>
+                <tr>
+                    <td><h:outputText value="Entrez le nom:" /></td>
+                    <td><h:inputText id="nom" value="#{Client.nom}"
+                            required="true" requiredMessage="Merci d'entrer le nom" /></td>
+                    <td><h:message for="nom" style="color:red" /></td>
+                </tr>
+                <tr>
+                    <td><h:outputText value="Entrez le prénom:" /></td>
+                    <td><h:inputText id="prenom" value="#{Client.prenom}"
+                            required="true" requiredMessage="Merci d'entrer le prenom" /></td>
+                    <td><h:message for="prenom" style="color:red" /></td>
+                </tr>
+              <tr>
+                    <td><h:outputText value="Entrez l'adresse:" /></td>
+                    <td><h:inputText id="adresse" value="#{Client.adresse}"
+                            required="true" requiredMessage="merci d'entrez votre adresse" /></td>
+                    <td><h:message for="adresse" style="color:red" /></td>
+                </tr>
+                <tr>
+                    <td><h:outputText value="Entrez le code postale:" /></td>
+                    <td><h:inputText id="CP" value="#{Client.CP}"
+                            required="true" requiredMessage="merci d'entrez  code postale" /></td>
+                    <td><h:message for="CP" style="color:red" /></td>
+                </tr>
+                    <tr>
+                    <td><h:outputText value="Entrez la ville:" /></td>
+                    <td><h:inputText id="ville" value="#{Client.ville}"
+                            required="true" requiredMessage="merci d'entrez votre ville" /></td>
+                    <td><h:message for="ville" style="color:red" /></td>
+                </tr>
+                <tr>
+                    <td><h:outputText value="Entrez le numéro de téléphone:" /></td>
+                    <td><h:inputText id="telephone" value="#{Client.telephone}"
+                            required="true" requiredMessage="merci d'entrez votre numéro de téléphone" /></td>
+                    <td><h:message for="telephone" style="color:red" /></td>
+                </tr>
+
+                <tr>
+                    <td />
+                    <td><h:commandButton value="Register" action="#{Client.ajouterClient}" /></td>
+                </tr>
+                <tr> 
+                    <td><h:outputLink value="CompteClient.xhtml">CompteClient</h:outputLink></td>
+                </tr>
+            </table>
+        </h:form>
+    </f:view>
+</h:body>
+</html>

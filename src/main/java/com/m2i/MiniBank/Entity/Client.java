@@ -1,5 +1,6 @@
 package com.m2i.MiniBank.Entity;
 
+import javax.faces.bean.ManagedBean;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="T_CLIENT")
+@ManagedBean(name = "Client")
 public class Client {
 	/* {src_lang=Java} */
 	
@@ -24,7 +26,7 @@ public class Client {
 
 	private String Ville;
 
-	private double Telephone;
+	private long Telephone;
 
 	private Long IDagence;
 	
@@ -82,11 +84,11 @@ public class Client {
 		Ville = ville;
 	}
 	@Column(name="TELEPHONE_CLIENT")
-	public double getTelephone() {
+	public long getTelephone() {
 		return Telephone;
 	}
 
-	public void setTelephone(double telephone) {
+	public void setTelephone(long telephone) {
 		Telephone = telephone;
 	}
 	
@@ -98,4 +100,23 @@ public class Client {
 	public void setIDagence(Long iDagence) {
 		IDagence = iDagence;
 	}
+
+	public Client(String nom, String prenom) {
+		this.nom = nom;
+		this.prenom = prenom;
+	}
+
+	public Client() {}
+
+	public Client(String nom, String prenom, String adresse, String ville, long telephone) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.adresse = adresse;
+		Ville = ville;
+		Telephone = telephone;
+	}
+	
+	
+	
 }

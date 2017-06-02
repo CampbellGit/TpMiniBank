@@ -1,0 +1,43 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+<h:head>
+    <title>Registration Page</title>
+    <link href="resources/css/style.css" rel="stylesheet" type="text/css"></link>
+</h:head>
+<h:body>
+    <f:view>
+        <h:form id="registerForm">
+            <table>
+                <tr>
+                    <td><h:outputText value="Nom:" /></td>
+                    <td><h:inputText id="nom" value="#{Client.nom}"/></td>
+                </tr>
+                   <tr>
+                    <td><h:outputText value="Prénom" /></td>
+                    <td><h:inputText id="prenom" value="#{prenom.nom}"/></td>
+                </tr>
+                 <tr>
+                    <td />
+				<td><input type="submit" value="Save"/></td>         
+		       </tr>
+                <tr> 
+                    <td><h:outputLink value="home.xhtml">accueil</h:outputLink></td>
+                </tr>
+               
+                <c:forEach items="${Client}" var="client">
+				<tr>
+					<td>${client.nom}</td>
+					<td>${client.prenom}</td>
+					<td><a href="listerClientParId?id=${client.id}">Modifier</a></td>
+				</tr>
+			</c:forEach>
+            </table>
+        </h:form>
+    </f:view>
+</h:body>
+</html>
