@@ -3,26 +3,39 @@ package com.m2i.MiniBank.Entity;
 import java.util.Date;
 
 import javax.faces.bean.ManagedBean;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@ManagedBean
+
+
+@Entity
+@Table(name = "T_COMPTE")
 public class Compte {
 
-	public long getNumerocompte() {
-		return numerocompte;
-	}
 
-	public void setNumerocompte(long numerocompte) {
-		this.numerocompte = numerocompte;
-	}
+	private float solde;
 
-	public long getSolde() {
+	private Date dateouverture;
+
+	private Long IDcompte;
+
+	private float decouvert;
+
+
+	@Column(name = "SOLDE_COMPTE")
+	public float getSolde() {
 		return solde;
 	}
 
-	public void setSolde(long solde) {
+	public void setSolde(float solde) {
 		this.solde = solde;
 	}
 
+	@Column(name = "DATE_COMPTE")
 	public Date getDateouverture() {
 		return dateouverture;
 	}
@@ -31,14 +44,18 @@ public class Compte {
 		this.dateouverture = dateouverture;
 	}
 
-	public long getIDcompte() {
+	@Id
+	@Column(name = "COMPTE_ID", unique = true, nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public Long getIDcompte() {
 		return IDcompte;
 	}
 
-	public void setIDcompte(long iDcompte) {
+	public void setIDcompte(Long iDcompte) {
 		IDcompte = iDcompte;
 	}
 
+	@Column(name = "DECOUVERT_COMPTE")
 	public float getDecouvert() {
 		return decouvert;
 	}
@@ -47,14 +64,25 @@ public class Compte {
 		this.decouvert = decouvert;
 	}
 
-	private long numerocompte;
+	public Compte( float solde, float decouvert) {
 
-	public long solde;
+		this.solde = solde;
+		this.decouvert = decouvert;
+	}
 
-	public Date dateouverture;
 
-	public long IDcompte;
+	public void ajout(float argent) {
+		this.solde += argent;
+		
+	}
 
-	public float decouvert;
-
+	public void retrait(float argent){
+        this.solde -= argent;
 }
+
+	public void virement(Compte destianataire, float argent){
+    this.retrait(argent);
+    destianataire.ajout(argent);
+	}
+}
+	

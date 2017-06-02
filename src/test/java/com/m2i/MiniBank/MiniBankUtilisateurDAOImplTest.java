@@ -12,11 +12,7 @@ public class MiniBankUtilisateurDAOImplTest {
 	@Test
 	public void testAddOrUpdateUtilisateur() {
 		minibankTest = new MiniBankUtilisateurDAOImpl();
-		Utilisateur u = new Utilisateur();
-		u.setLogin("Michel");
-		u.setPassword("Michel");
-		u.setPrenom("Michel");
-		u.setNom("Michel");
+		Utilisateur u = new Utilisateur("Michel", "Truc", "Michel", "Truc");
 		minibankTest.addOrUpdateUtilisateur(u);
 	}
 
