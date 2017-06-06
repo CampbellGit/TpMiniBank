@@ -33,7 +33,7 @@ public class MiniBankClientDAOImpl implements IMiniBankClientDAO {
 		tx.commit();
 		session.close();
 	}
-	public Client listerClientParId(int id) {
+	public Client listerClientParId(Long id) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Client client = (Client) session.load(Client.class, id);
 		return client;

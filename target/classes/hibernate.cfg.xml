@@ -14,6 +14,7 @@
 		<property name="show_sql">true</property>
 		<property name="format_sql">true</property>
 		<property name="hibernate.generate_statistics">true</property>
+		<property name="connection.pool_size">20</property>
 		<!-- validate / update / create / create-drop -->
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		<mapping class="com.m2i.MiniBank.Entity.Utilisateur" />
@@ -21,5 +22,4 @@
 		<mapping class="com.m2i.MiniBank.Entity.Client" />
 		<mapping class="com.m2i.MiniBank.Entity.Compte" />
 	</session-factory>
-
 </hibernate-configuration>

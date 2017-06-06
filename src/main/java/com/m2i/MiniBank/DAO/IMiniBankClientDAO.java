@@ -8,7 +8,7 @@ public interface IMiniBankClientDAO {
 	
 	public void ajouterClient(Client client);
 	public void supprimerClient(Client client) ;
-	public Client listerClientParId(int id);	
+	public Client listerClientParId(Long id);	
 	public List<Client> listerClients();
 
 }

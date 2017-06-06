@@ -31,7 +31,7 @@ public class MiniBankClinetServiceImpl implements IMininBankClientService{
 	}
 	@Override
 	@Transactional
-	public Client listerClientParId(int id) {
+	public Client listerClientParId(Long id) {
 		return MiniBankClientDAO.listerClientParId(id);
 	}
 	

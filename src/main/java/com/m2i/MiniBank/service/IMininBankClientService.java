@@ -10,7 +10,7 @@ public interface IMininBankClientService {
 
 	public void supprimerClient(Client client);
 
-	public Client listerClientParId(int id);
+	public Client listerClientParId(Long id);
 
 	public List<Client> listerClients();
 

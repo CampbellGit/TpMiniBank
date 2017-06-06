@@ -1,11 +1,18 @@
 package com.m2i.MiniBank.Entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.faces.bean.ManagedBean;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -26,7 +33,7 @@ public class Client {
 
 	private String Ville;
 
-	private long Telephone;
+	private Long Telephone;
 
 	private Long IDagence;
 	
@@ -84,11 +91,11 @@ public class Client {
 		Ville = ville;
 	}
 	@Column(name="TELEPHONE_CLIENT")
-	public long getTelephone() {
+	public Long getTelephone() {
 		return Telephone;
 	}
 
-	public void setTelephone(long telephone) {
+	public void setTelephone(Long telephone) {
 		Telephone = telephone;
 	}
 	
@@ -108,15 +115,42 @@ public class Client {
 
 	public Client() {}
 
-	public Client(String nom, String prenom, String adresse, String ville, long telephone) {
+	public Client(String nom, String prenom, String adresse, Long cP, String ville, Long telephone) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.adresse = adresse;
+		CP = cP;
 		Ville = ville;
 		Telephone = telephone;
+	}	
+	
+	
+	private Set<Compte> comptes = new HashSet<Compte>(0);
+
+	public Client(String nom, String prenom, String adresse, Long cP, String ville, Long telephone, Set<Compte> comptes) {
+	super();
+	this.nom = nom;
+	this.prenom = prenom;
+	this.adresse = adresse;
+	CP = cP;
+	Ville = ville;
+	Telephone = telephone;
+	this.comptes = comptes;
 	}
+
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "T_CLIENT_COMPTES", 
+	joinColumns = { @JoinColumn(name = "CLIENT_ID") }, 
+	inverseJoinColumns = { @JoinColumn(name = "COMPTE_ID")})
+	public Set<Compte> getComptes() {
+		return comptes;
+	}
+
+	public void setComptes(Set<Compte> comptes) {
+		this.comptes = comptes;
+	}	
 	
-	
+
 	
 }
